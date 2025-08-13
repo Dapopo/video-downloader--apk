@@ -1,0 +1,24 @@
+name: video_downloader
+description: A simple video downloader for TikTok, Instagram, Twitter
+publish_to: 'none'
+
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.6
+  path_provider: ^2.0.14
+  permission_handler: ^10.2.0
+  shared_preferences: ^2.0.17
+  receive_sharing_intent: ^1.4.5
+  video_thumbnail: ^0.5.3
+  open_filex: ^4.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
