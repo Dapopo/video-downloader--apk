@@ -1,0 +1,30 @@
+name: Build Android APK (Debug)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.0'
+
+      - name: Get dependencies
+        run: flutter pub get
+        working-directory: project_files
+
+      - name: Build APK
+        run: flutter build apk --debug
+        working-directory: project_files
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-debug.apk
+          path: project_files/build/app/outputs/flutter-apk/app-debug.apk
